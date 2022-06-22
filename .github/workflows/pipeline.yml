@@ -20,8 +20,9 @@ jobs:
           python-version: '3.7.11'
 
       - name: Install Requirements
-        run:  pip install flask flask-wtf
-              
+        run:  pip install flask flask-wtf tox
+      - name: Run tox
+        run: tox -e py
       - name: Unit Test
         run: python -m unittest -v test
       - name: SonarCloud Scan
