@@ -19,6 +19,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
+      - name: New Relic License
+        run: |
+          sed -i "s/licensekey/${{ secrets.NEW_RELIC_LICENSE_KEY }}/g" Dockerfile
+
       - name: Install Requirements
         run:  pip install flask flask-wtf pytest pytest-cov
 
